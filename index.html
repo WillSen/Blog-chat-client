@@ -9,7 +9,7 @@
 
   <form action="">
 
-  <input id="message-input" autocomplete="off" /><button>Send Message</button>
+  <input class="message-input" autocomplete="off" /><button>Send Message</button>
 
   </form>  
 </body>
@@ -17,15 +17,15 @@
   <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
   <script>
     var socket = io();
-    $('form').submit(function() {
+    $('form').submit(function(event) {
 
-        event.preventDefault()
+        event.preventDefault();
 
-        socket.emit('chat message', $('.messages').val());
+        socket.emit('chat message', $('.message-input').val());
 
         $('.message-input').val('');
 
-        return false;
+        // return false;
 
     });
   </script>
