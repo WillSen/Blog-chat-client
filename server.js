@@ -5,3 +5,5 @@ var express = require(‘express’),
 server.listen(8000); 
 
 app.use(express.static(‘.’)
+
+io.on(‘connection’, function(socket) {}
