@@ -5,7 +5,7 @@
   <title>Chat demo</title>
 </head>
 <body>
-  <ul id="messages"></ul>
+  <ul class="messages"></ul>
 
   <form action="">
 
@@ -16,5 +16,16 @@
   <script src="/socket.io/socket.io.js"></script>
   <script>
     var socket = io();
+    $('form').submit(function() {
+
+        event.preventDefault()
+
+        socket.emit('chat message', $('.messages').val());
+
+        $('.message-input').val('');
+
+        return false;
+
+    });
   </script>
 </html>
